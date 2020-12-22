@@ -113,6 +113,7 @@ class Application extends View {
       querySelector('#_contents')
           .setInnerHtml(render(resp, ext), validator: _htmlValidator);
       window.scrollTo(0, 0);
+      querySelector('table').classes.add('table');
       _log.info('File `${_config["views"]}/$template$ext` loaded successfully.');
     }).catchError((_) =>
         _log.shout('Unable to load file: ${_config["views"]}/$template$ext'));

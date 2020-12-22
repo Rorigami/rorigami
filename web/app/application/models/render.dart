@@ -1,4 +1,4 @@
-import 'package:markdown/markdown.dart';
+import 'package:markdown/markdown.dart' as md;
 
 /// Handles the rendering of data from the html/markdown
 /// files.
@@ -12,9 +12,8 @@ class View {
   /// is translated and returned as plain html.
   String render(String data, [String ext = '.html']){
     if(ext != '.html') {
-      data = markdownToHtml(data);
+      data = md.markdownToHtml(data, extensionSet: md.ExtensionSet.gitHubWeb);
     }
-    print(data);
     return data;
   }
 }
